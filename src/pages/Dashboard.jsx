@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../styles/DashboardPage.css'; // This will be the new CSS file
+import "../styles/Dashboard.css";
+import "../styles/GlobalBackground.css";
+
 
 const DashboardPage = () => {
   const [messages, setMessages] = useState([]);
@@ -66,15 +68,9 @@ const DashboardPage = () => {
   return (
     <>
       <div className="bg-particles">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className="particle" style={{left: `${10 + i * 10}%`, animationDelay: `${i * 0.5}s`}}></div>
+        ))}
       </div>
 
       <div className="app-container">
@@ -153,14 +149,14 @@ const DashboardPage = () => {
       
       {/* Top Navigation */}
       <div className="top-nav">
-        <a href="#" className="nav-button" onClick={() => handleNavClick('Dashboard')}>
+        <button className="nav-button" onClick={() => handleNavClick('Dashboard')}>
           <span className="nav-icon">📊</span>
           <span className="nav-text">Dashboard</span>
-        </a>
-        <a href="#" className="nav-button" onClick={() => handleNavClick('Diary')}>
+        </button>
+        <button className="nav-button" onClick={() => handleNavClick('Diary')}>
           <span className="nav-icon">📔</span>
           <span className="nav-text">Diary Page</span>
-        </a>
+        </button>
       </div>
     </>
   );

@@ -1,66 +1,42 @@
-import React, { useState } from 'react';
-import LoginPage from './pages/LoginPage';
-import SignUpPage from './pages/SignUpPage';
-import DashboardPage from './pages/DashboardPage';
-import DiaryPage from './pages/DiaryPage'; 
+import React, { useState } from "react";
+import LoginPage from "./pages/LoginPage";
+import SignUpPage from "./pages/SignUpPage";
+import DashboardPage from "./pages/Dashboard";
 
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('login');
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [currentPage, setCurrentPage] = useState("login");
+  const [user, setUser] = useState(null);
 
-  // Handle transitions
-  const handleSignupTransition = () => {
-    setCurrentPage('signup');
+  // Navigate between login & signup
+  const handleNavigateToLogin = () => {
+    setCurrentPage("login");
   };
 
-  const handleLoginTransition = () => {
-    setCurrentPage('login');
+  const handleNavigateToSignUp = () => {
+    setCurrentPage("signUp");
   };
 
-  const handleSuccessfulLogin = () => {
-    setIsLoggedIn(true);
-    setCurrentPage('dashboard');
+  // When login is successful → go to dashboard
+  const handleLoginSuccess = (userData) => {
+    setUser(userData);
+    setCurrentPage("dashboard");
   };
 
-  const handleGoToDiary = () => {
-    setCurrentPage('diary');
-  };
-
-  const handleGoToDashboard = () => {
-    setCurrentPage('dashboard');
-  };
-
-  return (
-    <>
-      <div className="bg-particles">
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-        <div className="particle"></div>
-      </div>
-
-      {isLoggedIn ? (
-        currentPage === 'dashboard' ? (
-          <DashboardPage onGoToDiary={handleGoToDiary} />
-        ) : (
-          <DiaryPage onBackToDashboard={handleGoToDashboard} />
-        )
-      ) : currentPage === 'login' ? (
-        <LoginPage
-          onSignupTransition={handleSignupTransition}
-          onSuccessfulLogin={handleSuccessfulLogin}
-        />
-      ) : (
-        <SignUpPage onLoginTransition={handleLoginTransition} />
-      )}
-    </>
-  );
+  if (currentPage === "login") {
+    return (
+      <LoginPage
+        onLoginSuccess={handleLoginSuccess}
+        onNavigateToSignUp={handleNavigateToSignUp}
+      />
+    );
+  } else if (currentPage === "signUp") {
+    return <SignUpPage onNavigateToLogin={handleNavigateToLogin} />;
+  } else if (currentPage === "dashboard") {
+    return <DashboardPage user={user} />;
+  } else {
+    return null;
+  }
 }
 
 export default App;

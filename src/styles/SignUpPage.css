@@ -1,4 +1,4 @@
-/* LoginPage.css - Login Page Styles */
+/* SignUpPage.css - SignUp Page Styles */
 
 .bg-particles {
   position: fixed;
@@ -36,7 +36,7 @@
   100% { transform: translateY(-100px) scale(1); opacity: 0; }
 }
 
-.login-container {
+.signup-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -47,7 +47,7 @@
   z-index: 1;
 }
 
-.login-card {
+.signup-card {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   border-radius: 24px;
@@ -57,13 +57,13 @@
     0 0 0 1px rgba(255, 255, 255, 0.05);
   padding: 48px;
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
-.login-card::before {
+.signup-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -91,7 +91,7 @@
   }
 }
 
-.login-header { 
+.signup-header { 
   text-align: center; 
   margin-bottom: 40px;
   position: relative;
@@ -119,7 +119,7 @@
   50% { transform: scale(1.05); }
 }
 
-.login-title { 
+.signup-title { 
   font-size: 32px; 
   font-weight: 700; 
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -130,7 +130,7 @@
   animation: fadeInDown 0.6s ease-out 0.2s both;
 }
 
-.login-subtitle { 
+.signup-subtitle { 
   font-size: 16px; 
   color: #666; 
   animation: fadeInUp 0.6s ease-out 0.4s both;
@@ -144,6 +144,17 @@
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.form-row { 
+  display: flex; 
+  gap: 16px; 
+  margin-bottom: 24px; 
+}
+
+.form-row .input-group { 
+  flex: 1; 
+  margin-bottom: 0; 
 }
 
 .input-group { 
@@ -211,12 +222,44 @@
   animation: fadeIn 0.3s ease; 
 }
 
+.terms-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.terms-checkbox input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #667eea;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+.terms-checkbox label {
+  font-size: 14px;
+  color: #374151;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.terms-checkbox a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terms-checkbox a:hover {
+  text-decoration: underline;
+}
+
 @keyframes fadeIn { 
   from { opacity: 0; transform: translateY(-4px); } 
   to { opacity: 1; transform: translateY(0); } 
 }
 
-.login-button {
+.signup-button {
   width: 100%;
   padding: 16px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -237,7 +280,7 @@
   z-index: 2;
 }
 
-.login-button::before {
+.signup-button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -248,22 +291,22 @@
   transition: left 0.5s ease;
 }
 
-.login-button:hover:not(:disabled) { 
+.signup-button:hover:not(:disabled) { 
   transform: translateY(-3px) scale(1.02); 
   box-shadow: 
     0 15px 35px rgba(102, 126, 234, 0.4),
     0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.login-button:hover:not(:disabled)::before {
+.signup-button:hover:not(:disabled)::before {
   left: 100%;
 }
 
-.login-button:active {
+.signup-button:active {
   transform: translateY(-1px) scale(1.01);
 }
 
-.login-button:disabled { 
+.signup-button:disabled { 
   opacity: 0.7; 
   cursor: not-allowed; 
   transform: none; 
@@ -344,13 +387,13 @@
   box-shadow: none;
 }
 
-.login-footer { 
+.signup-footer { 
   text-align: center;
   z-index: 2;
   position: relative;
 }
 
-.forgot-password-link {
+.signin-link {
   background: none;
   border: none;
   color: #667eea;
@@ -361,26 +404,26 @@
   transition: all 0.3s ease;
 }
 
-.forgot-password-link:hover:not(:disabled) { 
+.signin-link:hover:not(:disabled) { 
   color: #5a6acf; 
   text-decoration: underline;
   transform: translateY(-1px);
 }
 
-.forgot-password-link:disabled {
+.signin-link:disabled {
   opacity: 0.5; 
   cursor: not-allowed;
 }
 
 /* Responsive Design */
 @media (max-width: 640px) {
-  .login-card {
+  .signup-card {
     padding: 36px 24px;
     margin: 16px;
     max-width: 100%;
   }
   
-  .login-title {
+  .signup-title {
     font-size: 28px;
   }
   
@@ -390,8 +433,17 @@
     font-size: 32px;
   }
   
-  .input-field, .login-button, .google-button {
+  .input-field, .signup-button, .google-button {
     padding: 14px 16px; 
     font-size: 15px;
+  }
+  
+  .form-row { 
+    flex-direction: column; 
+    gap: 0; 
+  }
+  
+  .form-row .input-group { 
+    margin-bottom: 24px; 
   }
 }

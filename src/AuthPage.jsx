@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
-import DashboardPage from './pages/DashboardPage';
+import DashboardPage from './pages/ChatPage';
 import './styles/LoginPage.css'; // Correct path for CSS
 
 const AuthPage = () => {
