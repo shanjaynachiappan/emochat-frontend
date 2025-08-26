@@ -88,6 +88,7 @@ const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
             </p>
           </div>
 
+
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <label className="input-label" htmlFor="email">Email Address</label>
@@ -133,6 +134,29 @@ const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
                 <span className="btn-text">Sign In to Emo Chat</span>
               )}
             </button>
+
+            {/* Prominent Sign Up button below login */}
+            <button
+              type="button"
+              className="signup-button"
+              onClick={onNavigateToSignUp}
+              disabled={isLoading}
+              style={{
+                width: '100%',
+                marginTop: '16px',
+                background: 'linear-gradient(135deg, #ff6b9d 0%, #00d4ff 100%)',
+                color: 'white',
+                fontWeight: 600,
+                border: 'none',
+                borderRadius: '12px',
+                padding: '12px',
+                fontSize: '16px',
+                cursor: 'pointer',
+                boxShadow: '0 4px 16px rgba(0, 212, 255, 0.10)'
+              }}
+            >
+              Sign Up
+            </button>
           </form>
 
           <div className="divider">
@@ -153,12 +177,6 @@ const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
             <button className="forgot-password-link" onClick={handleForgotPassword} disabled={isLoading}>
               Forgot your password?
             </button>
-            <div style={{ marginTop: '16px' }}>
-              <span style={{ color: '#666', fontSize: '14px' }}>Don't have an account? </span>
-              <button className="forgot-password-link" onClick={onNavigateToSignUp} disabled={isLoading}>
-                Sign Up
-              </button>
-            </div>
           </div>
         </div>
       </div>

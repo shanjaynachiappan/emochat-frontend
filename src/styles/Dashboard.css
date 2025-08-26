@@ -1,6 +1,6 @@
 /* Dashboard.css - Specific styles for the Dashboard component */
 
-.app-container {
+.dashboard-app-container {
     display: flex;
     height: 100vh;
     position: relative;

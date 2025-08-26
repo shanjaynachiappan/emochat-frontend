@@ -1,3 +1,18 @@
+body {
+  overflow-y: auto !important;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+}
 /* LoginPage.css - Login Page Styles */
 
 .bg-particles {
@@ -60,7 +75,7 @@
   max-width: 450px;
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; removed to allow scrolling */
 }
 
 .login-card::before {

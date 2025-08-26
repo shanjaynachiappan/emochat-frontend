@@ -3,7 +3,7 @@ import "../styles/Dashboard.css";
 import "../styles/GlobalBackground.css";
 
 
-const DashboardPage = () => {
+const DashboardPage = ({ onNavigate, ...props }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -62,7 +62,15 @@ const DashboardPage = () => {
   };
 
   const handleNavClick = (page) => {
-    alert(`${page} page would load here!`);
+    if (onNavigate) {
+      if (page.toLowerCase() === 'diary') {
+        onNavigate('diary');
+      } else if (page.toLowerCase() === 'dashboard') {
+        onNavigate('dashboard');
+      }
+    } else {
+      alert(`${page} page would load here!`);
+    }
   };
 
   return (
@@ -73,7 +81,7 @@ const DashboardPage = () => {
         ))}
       </div>
 
-      <div className="app-container">
+  <div className="dashboard-app-container">
         {/* Left Sidebar - Chat History */}
         <div className="left-sidebar">
           <div className="sidebar-header">
