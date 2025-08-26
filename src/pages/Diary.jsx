@@ -1,11 +1,11 @@
 
 
 import { useState, useEffect } from 'react';
-import { BookOpen, Calendar, Heart, Trash2, Plus, Edit3, Eye } from 'lucide-react';
+import { BookOpen, Calendar, Heart, Trash2, Plus, Edit3, Eye, ChevronLeft } from 'lucide-react';
 import '../styles/HomePage.css';
 
 // Accept navigation props from App
-export default function DiaryApp({ onNewEntry, onEditEntry, onViewEntry }) {
+export default function DiaryApp({ onNewEntry, onEditEntry, onViewEntry, onBack }) {
   const [entries, setEntries] = useState([]);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(null);
 
@@ -36,6 +36,13 @@ export default function DiaryApp({ onNewEntry, onEditEntry, onViewEntry }) {
 
   return (
     <div className="diary-app-container">
+      <button
+        onClick={onBack}
+        className="back-button-top-right"
+      >
+        <ChevronLeft className="button-icon" />
+        Back
+      </button>
       <div className="home-container slide-in-up">
         <div className="home-header">
           <div className="logo-container bounce-animation">

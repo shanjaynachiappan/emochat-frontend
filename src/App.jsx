@@ -5,6 +5,7 @@ import SignUpPage from "./pages/SignUpPage";
 import DashboardPage from "./pages/Dashboard";
 import DiaryApp from "./pages/Diary";
 import DiaryEntry from "./pages/DiaryEntry";
+import AnalyticsDashboard from "./pages/AnalyticsDashboard";
 
 
 function App() {
@@ -39,6 +40,8 @@ function App() {
     return <SignUpPage onNavigateToLogin={handleNavigateToLogin} />;
   } else if (currentPage === "dashboard") {
     return <DashboardPage user={user} onNavigate={setCurrentPage} />;
+  } else if (currentPage === "analytics") {
+    return <AnalyticsDashboard />;
   } else if (currentPage === "diary") {
     if (diaryMode === "list") {
       return (
@@ -46,6 +49,7 @@ function App() {
           onNewEntry={() => { setDiaryMode("write"); setEntryData(null); }}
           onEditEntry={entry => { setDiaryMode("edit"); setEntryData(entry); }}
           onViewEntry={entry => { setDiaryMode("view"); setEntryData(entry); }}
+          onBack={() => setCurrentPage("dashboard")}
         />
       );
     } else {

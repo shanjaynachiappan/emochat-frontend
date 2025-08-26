@@ -67,6 +67,8 @@ const DashboardPage = ({ onNavigate, ...props }) => {
         onNavigate('diary');
       } else if (page.toLowerCase() === 'dashboard') {
         onNavigate('dashboard');
+      } else if (page.toLowerCase() === 'analytics') {
+        onNavigate('analytics');
       }
     } else {
       alert(`${page} page would load here!`);
@@ -157,9 +159,9 @@ const DashboardPage = ({ onNavigate, ...props }) => {
       
       {/* Top Navigation */}
       <div className="top-nav">
-        <button className="nav-button" onClick={() => handleNavClick('Dashboard')}>
-          <span className="nav-icon">📊</span>
-          <span className="nav-text">Dashboard</span>
+        <button className="nav-button" onClick={() => handleNavClick('Analytics')}>
+          <span className="nav-icon">📈</span>
+          <span className="nav-text">Analytics</span>
         </button>
         <button className="nav-button" onClick={() => handleNavClick('Diary')}>
           <span className="nav-icon">📔</span>
