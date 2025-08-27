@@ -3,6 +3,7 @@ import "../styles/LoginPage.css";
 
 const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isSignUpHovered, setIsSignUpHovered] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -140,6 +141,8 @@ const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
               type="button"
               className="signup-button"
               onClick={onNavigateToSignUp}
+              onMouseEnter={() => setIsSignUpHovered(true)}
+              onMouseLeave={() => setIsSignUpHovered(false)}
               disabled={isLoading}
               style={{
                 width: '100%',
@@ -152,7 +155,11 @@ const LoginPage = ({ onLoginSuccess, onNavigateToSignUp }) => {
                 padding: '12px',
                 fontSize: '16px',
                 cursor: 'pointer',
-                boxShadow: '0 4px 16px rgba(0, 212, 255, 0.10)'
+                boxShadow: isSignUpHovered 
+                  ? '0 8px 25px rgba(0, 212, 255, 0.4), 0 0 20px rgba(255, 107, 157, 0.3)' 
+                  : '0 4px 16px rgba(0, 212, 255, 0.10)',
+                transform: isSignUpHovered ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
+                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
             >
               Sign Up

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
-import { Heart, TrendingUp, Zap, Cloud, Calendar, Activity, Star, Target } from 'lucide-react';
+import { Heart, TrendingUp, Zap, Cloud, Calendar, Activity, Star, Target, ChevronLeft } from 'lucide-react';
 import '../styles/AnalyticsDashboard.css';
 
-const AnalyticsDashboard = () => {
+const AnalyticsDashboard = ({ onBack }) => {
   const [healingScore, setHealingScore] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -143,6 +143,15 @@ const AnalyticsDashboard = () => {
 
   return (
     <div className="dashboard-background">
+      {/* Back Button - Top Right Corner */}
+      <button
+        onClick={onBack}
+        className="analytics-back-button"
+      >
+        <ChevronLeft className="button-icon" />
+        Back
+      </button>
+      
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="header-glow">

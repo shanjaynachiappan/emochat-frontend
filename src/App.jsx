@@ -41,7 +41,7 @@ function App() {
   } else if (currentPage === "dashboard") {
     return <DashboardPage user={user} onNavigate={setCurrentPage} />;
   } else if (currentPage === "analytics") {
-    return <AnalyticsDashboard />;
+    return <AnalyticsDashboard onBack={() => setCurrentPage("dashboard")} />;
   } else if (currentPage === "diary") {
     if (diaryMode === "list") {
       return (
